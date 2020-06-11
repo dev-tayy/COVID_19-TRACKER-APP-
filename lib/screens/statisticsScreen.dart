@@ -26,9 +26,9 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
   Container buildContainer1(
       {Color color, String cases, String numbers, double fontsize}) {
     return Container(
-        width: SizeConfig.safeBlockHorizontal*44,
-        height: SizeConfig.safeBlockVertical*15,
-        padding: EdgeInsets.all(SizeConfig.safeBlockHorizontal*3),
+        width: SizeConfig.safeBlockHorizontal * 44,
+        height: SizeConfig.safeBlockVertical * 15,
+        padding: EdgeInsets.all(SizeConfig.safeBlockHorizontal * 3),
         decoration:
             BoxDecoration(color: color, borderRadius: BorderRadius.circular(8)),
         child: Column(
@@ -38,7 +38,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
               Text(cases,
                   style: GoogleFonts.nunito(
                       color: Colors.white,
-                      fontSize: SizeConfig.safeBlockHorizontal*5,
+                      fontSize: SizeConfig.safeBlockHorizontal * 5,
                       fontWeight: FontWeight.bold)),
               Text(numbers,
                   style: GoogleFonts.nunito(
@@ -49,11 +49,10 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
   }
 
   Container buildContainer2({Color color, String cases, String numbers}) {
-
     return Container(
-        width: SizeConfig.safeBlockHorizontal*30,
-        height: SizeConfig.safeBlockVertical*14,
-        padding: EdgeInsets.all(SizeConfig.safeBlockHorizontal*3),
+        width: SizeConfig.safeBlockHorizontal * 30,
+        height: SizeConfig.safeBlockVertical * 14,
+        padding: EdgeInsets.all(SizeConfig.safeBlockHorizontal * 3),
         decoration:
             BoxDecoration(color: color, borderRadius: BorderRadius.circular(8)),
         child: Column(
@@ -63,12 +62,12 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
               Text(cases,
                   style: GoogleFonts.nunito(
                       color: Colors.white,
-                      fontSize: SizeConfig.safeBlockHorizontal*4,
+                      fontSize: SizeConfig.safeBlockHorizontal * 4,
                       fontWeight: FontWeight.bold)),
               Text(numbers,
                   style: GoogleFonts.nunito(
                     color: Colors.white,
-                    fontSize: SizeConfig.safeBlockHorizontal*8,
+                    fontSize: SizeConfig.safeBlockHorizontal * 8,
                   )),
             ]));
   }
@@ -84,7 +83,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
               if (snapshot.hasData) {
                 return Container(
                   color: Color(0xFF473F97),
-                  padding: EdgeInsets.all(SizeConfig.safeBlockHorizontal*4),
+                  padding: EdgeInsets.all(SizeConfig.safeBlockHorizontal * 4),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -93,7 +92,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                         style: GoogleFonts.nunito(
                             textStyle: TextStyle(
                           color: Colors.white,
-                          fontSize: SizeConfig.safeBlockHorizontal*7,
+                          fontSize: SizeConfig.safeBlockHorizontal * 7,
                         )),
                       ),
                       Text(
@@ -101,16 +100,16 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                         style: GoogleFonts.nunito(
                             textStyle: TextStyle(
                           color: Colors.white,
-                          fontSize: SizeConfig.safeBlockHorizontal*5,
+                          fontSize: SizeConfig.safeBlockHorizontal * 5,
                         )),
                       ),
-                      SizedBox(height: SizeConfig.safeBlockVertical*2),
+                      SizedBox(height: SizeConfig.safeBlockVertical * 2),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           buildContainer1(
                               color: Color(0xFFFFB259),
-                              fontsize: SizeConfig.safeBlockHorizontal*9,
+                              fontsize: SizeConfig.safeBlockHorizontal * 9,
                               cases: 'Samples Tested',
                               numbers: snapshot.data[0].data.totalSamplesTested
                                   .replaceAllMapped(
@@ -119,7 +118,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                                       (Match m) => '${m[1]},')),
                           buildContainer1(
                               color: Color(0xFF9059FF),
-                              fontsize: SizeConfig.safeBlockHorizontal*9,
+                              fontsize: SizeConfig.safeBlockHorizontal * 9,
                               cases: 'Confirmed Cases',
                               numbers: snapshot.data[0].data.totalConfirmedCases
                                   .toString()
@@ -129,7 +128,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                                       (Match m) => '${m[1]},')),
                         ],
                       ),
-                      SizedBox(height: SizeConfig.safeBlockVertical*2),
+                      SizedBox(height: SizeConfig.safeBlockVertical * 2),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
@@ -158,7 +157,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                         ],
                       ),
                       SizedBox(
-                        height: SizeConfig.safeBlockVertical*5,
+                        height: SizeConfig.safeBlockVertical * 5,
                         child: Divider(
                           color: Colors.white,
                           thickness: 1,
@@ -169,7 +168,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                         style: GoogleFonts.nunito(
                             textStyle: TextStyle(
                           color: Colors.white,
-                          fontSize: SizeConfig.safeBlockHorizontal*7,
+                          fontSize: SizeConfig.safeBlockHorizontal * 7,
                         )),
                       ),
                       Text(
@@ -177,16 +176,16 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                         style: GoogleFonts.nunito(
                             textStyle: TextStyle(
                           color: Colors.white,
-                          fontSize: SizeConfig.safeBlockHorizontal*5,
+                          fontSize: SizeConfig.safeBlockHorizontal * 5,
                         )),
                       ),
-                      SizedBox(height: SizeConfig.safeBlockVertical*2),
+                      SizedBox(height: SizeConfig.safeBlockVertical * 2),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           buildContainer1(
                               color: Color(0xFFFFB259),
-                              fontsize: SizeConfig.blockSizeHorizontal*8,
+                              fontsize: SizeConfig.blockSizeHorizontal * 7.5,
                               cases: 'Total Confirmed Cases',
                               numbers: snapshot.data[1].global.totalConfirmed
                                   .toString()
@@ -196,7 +195,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                                       (Match m) => '${m[1]},')),
                           buildContainer1(
                               color: Color(0xFF9059FF),
-                              fontsize: SizeConfig.blockSizeHorizontal*8,
+                              fontsize: SizeConfig.blockSizeHorizontal * 7.5,
                               cases: 'New Confirmed Cases',
                               numbers: snapshot.data[1].global.newConfirmed
                                   .toString()
@@ -206,13 +205,13 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                                       (Match m) => '${m[1]},')),
                         ],
                       ),
-                      SizedBox(height: SizeConfig.safeBlockVertical*2),
+                      SizedBox(height: SizeConfig.safeBlockVertical * 2),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           buildContainer1(
                               color: Color(0xFF4CD97B),
-                              fontsize: SizeConfig.blockSizeHorizontal*8,
+                              fontsize: SizeConfig.blockSizeHorizontal * 7.5,
                               cases: 'Total Recovered',
                               numbers: snapshot.data[1].global.totalRecovered
                                   .toString()
@@ -222,7 +221,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                                       (Match m) => '${m[1]},')),
                           buildContainer1(
                               color: Color(0xFFFF5959),
-                              fontsize: SizeConfig.blockSizeHorizontal*8,
+                              fontsize: SizeConfig.blockSizeHorizontal * 7.5,
                               cases: 'Total Deaths',
                               numbers: snapshot.data[1].global.totalDeaths
                                   .toString()
@@ -239,7 +238,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                 print(snapshot.error);
               }
               return Container(
-                  padding: EdgeInsets.all(SizeConfig.blockSizeHorizontal*8),
+                  padding: EdgeInsets.all(SizeConfig.blockSizeHorizontal * 8),
                   child: CircularProgressIndicator());
             }),
       ),

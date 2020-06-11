@@ -3,6 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../repositories/data_repositories.dart';
 import '../models/countrydata.dart';
 import '../models/globaldata.dart';
+import '../screens/sizeconfig.dart';
 
 class StatisticsScreen extends StatefulWidget {
   StatisticsScreen({Key key}) : super(key: key);
@@ -25,9 +26,9 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
   Container buildContainer1(
       {Color color, String cases, String numbers, double fontsize}) {
     return Container(
-        width: 175,
-        height: 110,
-        padding: EdgeInsets.all(16.0),
+        width: SizeConfig.safeBlockHorizontal*44,
+        height: SizeConfig.safeBlockVertical*15,
+        padding: EdgeInsets.all(SizeConfig.safeBlockHorizontal*3),
         decoration:
             BoxDecoration(color: color, borderRadius: BorderRadius.circular(8)),
         child: Column(
@@ -37,7 +38,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
               Text(cases,
                   style: GoogleFonts.nunito(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: SizeConfig.safeBlockHorizontal*5,
                       fontWeight: FontWeight.bold)),
               Text(numbers,
                   style: GoogleFonts.nunito(
@@ -48,10 +49,11 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
   }
 
   Container buildContainer2({Color color, String cases, String numbers}) {
+
     return Container(
-        width: 115,
-        height: 110,
-        padding: EdgeInsets.all(10.0),
+        width: SizeConfig.safeBlockHorizontal*30,
+        height: SizeConfig.safeBlockVertical*14,
+        padding: EdgeInsets.all(SizeConfig.safeBlockHorizontal*3),
         decoration:
             BoxDecoration(color: color, borderRadius: BorderRadius.circular(8)),
         child: Column(
@@ -61,18 +63,19 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
               Text(cases,
                   style: GoogleFonts.nunito(
                       color: Colors.white,
-                      fontSize: 20,
+                      fontSize: SizeConfig.safeBlockHorizontal*4,
                       fontWeight: FontWeight.bold)),
               Text(numbers,
                   style: GoogleFonts.nunito(
                     color: Colors.white,
-                    fontSize: 37,
+                    fontSize: SizeConfig.safeBlockHorizontal*8,
                   )),
             ]));
   }
 
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Center(
       child: SingleChildScrollView(
         child: FutureBuilder(
@@ -81,7 +84,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
               if (snapshot.hasData) {
                 return Container(
                   color: Color(0xFF473F97),
-                  padding: EdgeInsets.all(16.0),
+                  padding: EdgeInsets.all(SizeConfig.safeBlockHorizontal*4),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
@@ -90,7 +93,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                         style: GoogleFonts.nunito(
                             textStyle: TextStyle(
                           color: Colors.white,
-                          fontSize: 25,
+                          fontSize: SizeConfig.safeBlockHorizontal*7,
                         )),
                       ),
                       Text(
@@ -98,16 +101,16 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                         style: GoogleFonts.nunito(
                             textStyle: TextStyle(
                           color: Colors.white,
-                          fontSize: 16,
+                          fontSize: SizeConfig.safeBlockHorizontal*5,
                         )),
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: SizeConfig.safeBlockVertical*2),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           buildContainer1(
                               color: Color(0xFFFFB259),
-                              fontsize: 37,
+                              fontsize: SizeConfig.safeBlockHorizontal*9,
                               cases: 'Samples Tested',
                               numbers: snapshot.data[0].data.totalSamplesTested
                                   .replaceAllMapped(
@@ -116,7 +119,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                                       (Match m) => '${m[1]},')),
                           buildContainer1(
                               color: Color(0xFF9059FF),
-                              fontsize: 37,
+                              fontsize: SizeConfig.safeBlockHorizontal*9,
                               cases: 'Confirmed Cases',
                               numbers: snapshot.data[0].data.totalConfirmedCases
                                   .toString()
@@ -126,7 +129,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                                       (Match m) => '${m[1]},')),
                         ],
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: SizeConfig.safeBlockVertical*2),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
@@ -155,7 +158,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                         ],
                       ),
                       SizedBox(
-                        height: 40,
+                        height: SizeConfig.safeBlockVertical*5,
                         child: Divider(
                           color: Colors.white,
                           thickness: 1,
@@ -166,7 +169,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                         style: GoogleFonts.nunito(
                             textStyle: TextStyle(
                           color: Colors.white,
-                          fontSize: 25,
+                          fontSize: SizeConfig.safeBlockHorizontal*7,
                         )),
                       ),
                       Text(
@@ -174,16 +177,16 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                         style: GoogleFonts.nunito(
                             textStyle: TextStyle(
                           color: Colors.white,
-                          fontSize: 16,
+                          fontSize: SizeConfig.safeBlockHorizontal*5,
                         )),
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: SizeConfig.safeBlockVertical*2),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           buildContainer1(
                               color: Color(0xFFFFB259),
-                              fontsize: 28,
+                              fontsize: SizeConfig.blockSizeHorizontal*8,
                               cases: 'Total Confirmed Cases',
                               numbers: snapshot.data[1].global.totalConfirmed
                                   .toString()
@@ -193,7 +196,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                                       (Match m) => '${m[1]},')),
                           buildContainer1(
                               color: Color(0xFF9059FF),
-                              fontsize: 28,
+                              fontsize: SizeConfig.blockSizeHorizontal*8,
                               cases: 'New Confirmed Cases',
                               numbers: snapshot.data[1].global.newConfirmed
                                   .toString()
@@ -203,13 +206,13 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                                       (Match m) => '${m[1]},')),
                         ],
                       ),
-                      SizedBox(height: 20),
+                      SizedBox(height: SizeConfig.safeBlockVertical*2),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           buildContainer1(
                               color: Color(0xFF4CD97B),
-                              fontsize: 28,
+                              fontsize: SizeConfig.blockSizeHorizontal*8,
                               cases: 'Total Recovered',
                               numbers: snapshot.data[1].global.totalRecovered
                                   .toString()
@@ -219,7 +222,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                                       (Match m) => '${m[1]},')),
                           buildContainer1(
                               color: Color(0xFFFF5959),
-                              fontsize: 28,
+                              fontsize: SizeConfig.blockSizeHorizontal*8,
                               cases: 'Total Deaths',
                               numbers: snapshot.data[1].global.totalDeaths
                                   .toString()
@@ -236,7 +239,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                 print(snapshot.error);
               }
               return Container(
-                  padding: EdgeInsets.all(8),
+                  padding: EdgeInsets.all(SizeConfig.blockSizeHorizontal*8),
                   child: CircularProgressIndicator());
             }),
       ),

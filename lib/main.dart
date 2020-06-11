@@ -6,7 +6,7 @@ import 'screens/guideScreen.dart';
 import 'screens/homeScreen.dart';
 import 'screens/statisticsScreen.dart';
 import 'package:line_icons/line_icons.dart';
-
+import 'screens/sizeconfig.dart';
 
 void main() {
   runApp(MyApp());
@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Covid-19 Tracker',
@@ -44,13 +45,15 @@ class _MyHomePageState extends State<MyHomePage> {
   ];
   @override
   Widget build(BuildContext context) {
+    SizeConfig().init(context);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF473F97),
         title: Text('Covid-19 Tracker',
             style: GoogleFonts.nunito(
-                textStyle:
-                    TextStyle(fontSize: 25, fontWeight: FontWeight.normal))),
+                textStyle: TextStyle(
+                    fontSize: SizeConfig.blockSizeHorizontal*6, 
+                    fontWeight: FontWeight.normal))),
         elevation: 0.0,
       ),
       body: screens[_selectedIndex],
@@ -80,7 +83,6 @@ class _MyHomePageState extends State<MyHomePage> {
                     icon: Icons.insert_chart,
                     text: 'Statistics',
                   ),
-                  
                   GButton(
                     icon: LineIcons.list,
                     text: 'Guides',

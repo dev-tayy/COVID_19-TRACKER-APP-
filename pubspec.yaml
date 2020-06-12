@@ -21,7 +21,6 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
-  get_it: ^1.0.3+2
   url_launcher: ^5.4.10
   line_icons: ^0.2.0
   google_nav_bar: ^2.2.0

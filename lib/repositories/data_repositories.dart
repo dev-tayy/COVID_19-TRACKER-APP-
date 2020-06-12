@@ -20,7 +20,7 @@ Future<CountryData> fetchData() async {
 }
 
 Future<GlobalData> fetchGlobalData() async {
-  final response = await http.get('https://api.covid19api.com/summary');
+  final response = await http.get('https://api.thevirustracker.com/free-api?global=stats');
 
   if (response.statusCode == 200) {
     // If the server did return a 200 OK response,

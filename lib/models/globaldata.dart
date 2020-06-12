@@ -1,38 +1,63 @@
 class GlobalData {
   GlobalData({
-    this.global,
+    this.results,
   });
 
-  Global global;
+  List<Result> results;
 
   factory GlobalData.fromJson(Map<String, dynamic> json) => GlobalData(
-        global: Global.fromJson(json["Global"]),
+        results: List<Result>.from(json["results"].map((x) => Result.fromJson(x))),
       );
+
+  Map<String, dynamic> toJson() => {
+        "results": List<dynamic>.from(results.map((x) => x.toJson())),
+      };
 }
 
-class Global {
-  Global({
-    this.newConfirmed,
-    this.totalConfirmed,
-    this.newDeaths,
-    this.totalDeaths,
-    this.newRecovered,
+class Result {
+  Result({
+    this.totalCases,
     this.totalRecovered,
+    this.totalUnresolved,
+    this.totalDeaths,
+    this.totalNewCasesToday,
+    this.totalNewDeathsToday,
+    this.totalActiveCases,
+    this.totalSeriousCases,
+    this.totalAffectedCountries,
   });
 
-  int newConfirmed;
-  int totalConfirmed;
-  int newDeaths;
-  int totalDeaths;
-  int newRecovered;
+  int totalCases;
   int totalRecovered;
+  int totalUnresolved;
+  int totalDeaths;
+  int totalNewCasesToday;
+  int totalNewDeathsToday;
+  int totalActiveCases;
+  int totalSeriousCases;
+  int totalAffectedCountries;
 
-  factory Global.fromJson(Map<String, dynamic> json) => Global(
-        newConfirmed: json["NewConfirmed"],
-        totalConfirmed: json["TotalConfirmed"],
-        newDeaths: json["NewDeaths"],
-        totalDeaths: json["TotalDeaths"],
-        newRecovered: json["NewRecovered"],
-        totalRecovered: json["TotalRecovered"],
+  factory Result.fromJson(Map<String, dynamic> json) => Result(
+        totalCases: json["total_cases"],
+        totalRecovered: json["total_recovered"],
+        totalUnresolved: json["total_unresolved"],
+        totalDeaths: json["total_deaths"],
+        totalNewCasesToday: json["total_new_cases_today"],
+        totalNewDeathsToday: json["total_new_deaths_today"],
+        totalActiveCases: json["total_active_cases"],
+        totalSeriousCases: json["total_serious_cases"],
+        totalAffectedCountries: json["total_affected_countries"],
       );
+
+  Map<String, dynamic> toJson() => {
+        "total_cases": totalCases,
+        "total_recovered": totalRecovered,
+        "total_unresolved": totalUnresolved,
+        "total_deaths": totalDeaths,
+        "total_new_cases_today": totalNewCasesToday,
+        "total_new_deaths_today": totalNewDeathsToday,
+        "total_active_cases": totalActiveCases,
+        "total_serious_cases": totalSeriousCases,
+        "total_affected_countries": totalAffectedCountries,
+      };
 }

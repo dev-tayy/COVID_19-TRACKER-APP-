@@ -152,7 +152,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                                       (Match m) => '${m[1]},')),
                           buildContainer2(
                               color: Color(0xFFFF5959),
-                              cases: 'Death',
+                              cases: 'Deaths',
                               numbers: snapshot.data[0].data.death.toString()),
                         ],
                       ),
@@ -187,17 +187,18 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                               color: Color(0xFFFFB259),
                               fontsize: SizeConfig.blockSizeHorizontal * 7.5,
                               cases: 'Total Confirmed Cases',
-                              numbers: snapshot.data[1].global.totalConfirmed
+                              numbers: snapshot.data[1].results[0].totalCases
                                   .toString()
                                   .replaceAllMapped(
                                       new RegExp(
                                           r'(\d{1,3})(?=(\d{3})+(?!\d))'),
                                       (Match m) => '${m[1]},')),
+                                      
                           buildContainer1(
-                              color: Color(0xFF9059FF),
+                              color: Color(0xFF4CD97B),
                               fontsize: SizeConfig.blockSizeHorizontal * 7.5,
-                              cases: 'New Confirmed Cases',
-                              numbers: snapshot.data[1].global.newConfirmed
+                              cases: 'Total Recovered Cases',
+                              numbers: snapshot.data[1].results[0].totalRecovered
                                   .toString()
                                   .replaceAllMapped(
                                       new RegExp(
@@ -210,10 +211,10 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: <Widget>[
                           buildContainer1(
-                              color: Color(0xFF4CD97B),
+                              color: Color(0xFF4DB5FF),
                               fontsize: SizeConfig.blockSizeHorizontal * 7.5,
-                              cases: 'Total Recovered',
-                              numbers: snapshot.data[1].global.totalRecovered
+                              cases: 'Total Active Cases',
+                              numbers: snapshot.data[1].results[0].totalActiveCases
                                   .toString()
                                   .replaceAllMapped(
                                       new RegExp(
@@ -223,7 +224,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                               color: Color(0xFFFF5959),
                               fontsize: SizeConfig.blockSizeHorizontal * 7.5,
                               cases: 'Total Deaths',
-                              numbers: snapshot.data[1].global.totalDeaths
+                              numbers: snapshot.data[1].results[0].totalDeaths
                                   .toString()
                                   .replaceAllMapped(
                                       new RegExp(

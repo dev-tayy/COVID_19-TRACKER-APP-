@@ -1,6 +1,7 @@
-# COVID19TRACKER
+# :chart_with_upwards_trend:COVID19TRACKER
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
-A new Flutter project.
+A new Fluttehttps://github.com/iloveteajay/COVID_19-TRACKER-APP-/settingsr project.
 
 ## Getting Started
 

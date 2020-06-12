@@ -2,7 +2,9 @@
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com) [![Twitter Follow](https://img.shields.io/twitter/follow/iloveteajay_?label=Follow&style=social)](https://twitter.com/iloveteajay_)
 
 A simple COVID-19 Tracker App that displays Nigeria and Global Statistics on COVID-19 Cases. 
+
 The [Virus Tracker API](https://thevirustracker.com/api) was used to provide the Global data while [COVID Nigeria API](https://covidnigeria.herokuapp.com/) was used to provide the Nigeria data. 
+
 The [www.cdc.gov](https://www.cdc.gov) was used to provide the guides.
 
 ## :dizzy:  Features

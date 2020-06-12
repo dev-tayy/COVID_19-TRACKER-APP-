@@ -6,8 +6,8 @@ The [The Virus Tracker API](https://thevirustracker.com/api) was used to provide
 The [www.cdc.gov](https://www.cdc.gov) was used to provide the guides.
 
 ## :dizzy:  Features
-- :white_check_mark: View all cases statistics.
-- :white_check_mark: Read guides on COVID-19 Preventions and Symptoms.
+- View all cases statistics.
+- Read guides on COVID-19 Preventions and Symptoms.
 
 ## :camera:  Screenshots
 _...coming soon_

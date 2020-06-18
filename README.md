@@ -12,7 +12,18 @@ The [www.cdc.gov](https://www.cdc.gov) was used to provide the guides.
 - Read guides on COVID-19 Preventions and Symptoms.
 
 ## :camera:  Screenshots
-_...coming soon_
+<div style="background-color:rgb(169,169,169); text-align:center">
+<img src="screenshots/launch_screen.png" width="300" style="border-radius: 15px">
+&nbsp;
+<img src="screenshots/home_screen.png" width="300" style="border-radius: 15px">
+</div>
+
+
+<div style="background-color:rgb(169,169,169); text-align:center">
+<img src="screenshots/stats_screen.png" width="300" style="border-radius: 15px">
+&nbsp;
+<img src="screenshots/guide_screen.png" width="300" style="border-radius: 15px">
+</div>
 
 ## :electric_plug:  Plugins
 | Name | Usage |

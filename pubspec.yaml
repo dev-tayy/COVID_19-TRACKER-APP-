@@ -21,6 +21,7 @@ environment:
   sdk: ">=2.7.0 <3.0.0"
 
 dependencies:
+  
   url_launcher: ^5.4.10
   line_icons: ^0.2.0
   google_nav_bar: ^2.2.0
@@ -34,8 +35,17 @@ dependencies:
   cupertino_icons: ^0.1.3
 
 dev_dependencies:
+  flutter_native_splash: ^0.1.9
   flutter_test:
     sdk: flutter
+
+flutter_native_splash:
+  image: "assets/splash.png"
+  color: "473F97"
+  
+  
+  
+  
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec

@@ -7,6 +7,7 @@ import 'screens/homeScreen.dart';
 import 'screens/statisticsScreen.dart';
 import 'package:line_icons/line_icons.dart';
 import 'screens/sizeconfig.dart';
+//import 'package:flutter_native_splash/flutter_native_splash.dart';
 
 void main() {
   runApp(MyApp());
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Covid-19 Tracker',
       theme: ThemeData(
-        primarySwatch: Colors.purple,
+        primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: MyHomePage(),

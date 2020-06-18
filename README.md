@@ -25,6 +25,8 @@ The [www.cdc.gov](https://www.cdc.gov) was used to provide the guides.
 <img src="screenshots/guide_screen.png" width="300" style="border-radius: 15px">
 </div>
 
+_*UI Inspiration gotten from https://dribbble.com/shots/11015463-Covid-19-App-Free*_
+
 ## :electric_plug:  Plugins
 | Name | Usage |
 |:------:|:-------:|

@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    SizeConfig.init(context);
     return SingleChildScrollView(
       child: SafeArea(
         child: Column(

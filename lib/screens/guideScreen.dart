@@ -44,7 +44,7 @@ class GuideScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    SizeConfig.init(context);
     return SingleChildScrollView(
       child: Padding(
         padding:  EdgeInsets.fromLTRB( SizeConfig.safeBlockHorizontal * 4,

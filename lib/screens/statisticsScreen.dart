@@ -20,7 +20,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
   void initState() {
     super.initState();
     futureCountryData = fetchData();
-    futureGlobalData = fetchGlobalData();
+    //futureGlobalData = fetchGlobalData();
   }
 
   Container buildContainer1(
@@ -67,19 +67,19 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
               Text(numbers,
                   style: GoogleFonts.nunito(
                     color: Colors.white,
-                    fontSize: SizeConfig.safeBlockHorizontal * 8,
+                    fontSize: SizeConfig.safeBlockHorizontal * 7,
                   )),
             ]));
   }
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    SizeConfig.init(context);
     return Center(
       child: SingleChildScrollView(
-        child: FutureBuilder(
-            future: Future.wait([futureCountryData, futureGlobalData]),
-            builder: (context, AsyncSnapshot<List<dynamic>> snapshot) {
+        child: FutureBuilder<CountryData>(
+            future: futureCountryData,
+            builder: (context, AsyncSnapshot snapshot) {
               if (snapshot.hasData) {
                 return Container(
                   color: Color(0xFF473F97),
@@ -111,7 +111,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                               color: Color(0xFFFFB259),
                               fontsize: SizeConfig.safeBlockHorizontal * 9,
                               cases: 'Samples Tested',
-                              numbers: snapshot.data[0].data.totalSamplesTested
+                              numbers: snapshot.data.data.totalSamplesTested
                                   .replaceAllMapped(
                                       new RegExp(
                                           r'(\d{1,3})(?=(\d{3})+(?!\d))'),
@@ -120,7 +120,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                               color: Color(0xFF9059FF),
                               fontsize: SizeConfig.safeBlockHorizontal * 9,
                               cases: 'Confirmed Cases',
-                              numbers: snapshot.data[0].data.totalConfirmedCases
+                              numbers: snapshot.data.data.totalConfirmedCases
                                   .toString()
                                   .replaceAllMapped(
                                       new RegExp(
@@ -135,7 +135,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                           buildContainer2(
                               color: Color(0xFF4DB5FF),
                               cases: 'Active',
-                              numbers: snapshot.data[0].data.totalActiveCases
+                              numbers: snapshot.data.data.totalActiveCases
                                   .toString()
                                   .replaceAllMapped(
                                       new RegExp(
@@ -144,7 +144,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                           buildContainer2(
                               color: Color(0xFF4CD97B),
                               cases: 'Discharged',
-                              numbers: snapshot.data[0].data.discharged
+                              numbers: snapshot.data.data.discharged
                                   .toString()
                                   .replaceAllMapped(
                                       new RegExp(
@@ -153,7 +153,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                           buildContainer2(
                               color: Color(0xFFFF5959),
                               cases: 'Deaths',
-                              numbers: snapshot.data[0].data.death.toString()),
+                              numbers: snapshot.data.data.death.toString()),
                         ],
                       ),
                       SizedBox(
@@ -187,23 +187,16 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                               color: Color(0xFFFFB259),
                               fontsize: SizeConfig.blockSizeHorizontal * 7.5,
                               cases: 'Total Confirmed Cases',
-                              numbers: snapshot.data[1].results[0].totalCases
-                                  .toString()
-                                  .replaceAllMapped(
-                                      new RegExp(
-                                          r'(\d{1,3})(?=(\d{3})+(?!\d))'),
-                                      (Match m) => '${m[1]},')),
-                                      
+                              numbers: 900292298.toString().replaceAllMapped(
+                                  new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
+                                  (Match m) => '${m[1]},')),
                           buildContainer1(
                               color: Color(0xFF4CD97B),
                               fontsize: SizeConfig.blockSizeHorizontal * 7.5,
                               cases: 'Total Recovered Cases',
-                              numbers: snapshot.data[1].results[0].totalRecovered
-                                  .toString()
-                                  .replaceAllMapped(
-                                      new RegExp(
-                                          r'(\d{1,3})(?=(\d{3})+(?!\d))'),
-                                      (Match m) => '${m[1]},')),
+                              numbers: 12883382.toString().replaceAllMapped(
+                                  new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
+                                  (Match m) => '${m[1]},')),
                         ],
                       ),
                       SizedBox(height: SizeConfig.safeBlockVertical * 2),
@@ -214,22 +207,16 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
                               color: Color(0xFF4DB5FF),
                               fontsize: SizeConfig.blockSizeHorizontal * 7.5,
                               cases: 'Total Active Cases',
-                              numbers: snapshot.data[1].results[0].totalActiveCases
-                                  .toString()
-                                  .replaceAllMapped(
-                                      new RegExp(
-                                          r'(\d{1,3})(?=(\d{3})+(?!\d))'),
-                                      (Match m) => '${m[1]},')),
+                              numbers: 1290129.toString().replaceAllMapped(
+                                  new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
+                                  (Match m) => '${m[1]},')),
                           buildContainer1(
                               color: Color(0xFFFF5959),
                               fontsize: SizeConfig.blockSizeHorizontal * 7.5,
                               cases: 'Total Deaths',
-                              numbers: snapshot.data[1].results[0].totalDeaths
-                                  .toString()
-                                  .replaceAllMapped(
-                                      new RegExp(
-                                          r'(\d{1,3})(?=(\d{3})+(?!\d))'),
-                                      (Match m) => '${m[1]},')),
+                              numbers: 2000000.toString().replaceAllMapped(
+                                  new RegExp(r'(\d{1,3})(?=(\d{3})+(?!\d))'),
+                                  (Match m) => '${m[1]},')),
                         ],
                       )
                     ],
@@ -238,6 +225,7 @@ class _StatisticsScreenState extends State<StatisticsScreen> {
               } else if (snapshot.hasError) {
                 print(snapshot.error);
               }
+              print(snapshot);
               return Container(
                   padding: EdgeInsets.all(SizeConfig.blockSizeHorizontal * 8),
                   child: CircularProgressIndicator());

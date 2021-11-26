@@ -8,7 +8,7 @@ class HomeWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    SizeConfig().init(context);
+    SizeConfig.init(context);
     return Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
